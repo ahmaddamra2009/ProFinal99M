@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Course>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <article class="aa-properties-item">
+                <a href="#" class="aa-properties-item-img">
+                    <img src="~/img/item/1.jpg" alt="img">
+                </a>
+                <div class="aa-tag for-sale">
+                    @item.Venu
+                </div>
+                <div class="aa-properties-item-content">
+                    <div class="aa-properties-info">
+                        <span>Start Date</span>
+                        <span>@item.SDate.ToShortDateString()</span>
+                        <span>Time</span>
+                        <span>@item.STime</span>
+                    </div>
+                    <div class="aa-properties-about">
+                        <h3><a href="#">@item.CourseName</a></h3>
+                        <p>@item.CourseDesc.Substring(0,15)</p>
+                    </div>
+                    <div class="aa-properties-detial">
+                        <span class="aa-price">
+                            $ @item.Price
+                        </span>
+                        <a asp-action="CourseDetails" asp-controller="Home" asp-route-id="@item.CourseId" class="aa-secondary-btn">View Details</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    }
+
+
+</div>
